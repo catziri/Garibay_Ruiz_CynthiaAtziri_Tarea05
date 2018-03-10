@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">ITESO Store</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="hintTitle">Introduce Title...</string>
+    <string name="hintStore">Introduce Store...</string>
+    <string name="hintLocation">Introduce Location...</string>
+    <string name="hintPhone">Introduce Phone...</string>
+    <string name="save">SAVE</string>
+    <string name="cancel">CANCEL</string>
+    <string name="welcome">WELCOME TO ITESO PRODUCTS</string>
+    <string name="name">Introduce email</string>
+    <string name="password">Introduce password</string>
+    <string name="login">Log In</string>
+    <string name="menu_privacy">Privacy Policy</string>
+    <string name="menu_log_out">Log Out</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
