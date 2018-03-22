@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@color/colorPrimary"
     android:id="@+id/activity_splash_screen"
-    tools:context="com.iteso.pdm18_scrollabletabs.ActivitySplashScreen">
+    tools:context="com.iteso.pdm18_scrollabletabs.tools.ActivitySplashScreen">
 
     <TextView
         android:id="@+id/activity_splash_welcome"

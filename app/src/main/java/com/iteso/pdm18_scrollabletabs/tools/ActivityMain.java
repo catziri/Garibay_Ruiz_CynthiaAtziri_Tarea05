@@ -22,6 +22,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import com.iteso.pdm18_scrollabletabs.beans.ItemProduct;
+import com.iteso.pdm18_scrollabletabs.tools.ActivityItem;
+import com.iteso.pdm18_scrollabletabs.tools.ActivityLogIn;
+import com.iteso.pdm18_scrollabletabs.tools.ActivityPrivacyPolicy;
+import com.iteso.pdm18_scrollabletabs.tools.AdapterProduct;
+import com.iteso.pdm18_scrollabletabs.tools.ElectronicsFragment;
+import com.iteso.pdm18_scrollabletabs.tools.HomeFragment;
+import com.iteso.pdm18_scrollabletabs.tools.TechnologyFragment;
 
 import java.util.ArrayList;
 
@@ -50,8 +57,8 @@ public class ActivityMain extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(ActivityMain.this, ActivityItem.class);
+                startActivity(intent);
             }
         });
 
@@ -175,6 +182,5 @@ public class ActivityMain extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
 
 }

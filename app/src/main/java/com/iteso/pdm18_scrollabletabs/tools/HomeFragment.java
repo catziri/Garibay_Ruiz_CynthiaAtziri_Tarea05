@@ -1,26 +1,34 @@
-package com.iteso.pdm18_scrollabletabs;
+package com.iteso.pdm18_scrollabletabs.tools;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.support.v4.app.Fragment;
+
+import com.iteso.pdm18_scrollabletabs.R;
 import com.iteso.pdm18_scrollabletabs.beans.ItemProduct;
+import com.iteso.pdm18_scrollabletabs.database.DataBaseHandler;
+import com.iteso.pdm18_scrollabletabs.database.ItemProductControl;
 
 import java.util.ArrayList;
 
-public class ElectronicsFragment extends Fragment {
-    public ElectronicsFragment() {
+
+public class HomeFragment extends Fragment {
+    public HomeFragment() {
 
     }
 
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    ItemProductControl itemProductControl=new ItemProductControl();
+    DataBaseHandler dh;
+    ArrayList<ItemProduct> mDataSet;
+
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,14 +42,14 @@ public class ElectronicsFragment extends Fragment {
         // Use a linear layout manager
         mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
-        ArrayList<ItemProduct> mDataSet = new ArrayList<ItemProduct>();
         mDataSet = new ArrayList<ItemProduct>();
-        mDataSet.add(new ItemProduct("Mac", "BestBuy", "Zapopan","3310156716","Llevate esta.....", 0, 0));
-        mDataSet.add(new ItemProduct("Alienware", "BestBuy", "Guadalajara","33110156787","Llevate esta...", 1, 1));
-        mDataSet.add(new ItemProduct("Lanix", "BestBuy", "Tlaquepaque","3310157681","Llevate esta.....", 0, 2));
-
+        dh= DataBaseHandler.getInstance(getContext());
+        mDataSet=itemProductControl.getItemProductsByCategory(dh,0);
         mAdapter = new AdapterProduct(getActivity(), mDataSet);
         recyclerView.setAdapter(mAdapter);
+        itemProductControl=null;
         return view;
+
+
     }
 }

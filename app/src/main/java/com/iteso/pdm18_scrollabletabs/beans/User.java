@@ -12,6 +12,12 @@ public class User implements Parcelable {
     private String password;
     private boolean isLogged;
 
+    public User(String name, String password, boolean isLogged) {
+        this.name = name;
+        this.password = password;
+        this.isLogged = isLogged;
+    }
+
 
     public String getName() {
         return name;

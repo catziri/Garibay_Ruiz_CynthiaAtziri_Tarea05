@@ -1,11 +1,8 @@
-package com.iteso.pdm18_scrollabletabs;
+package com.iteso.pdm18_scrollabletabs.tools;
 
-import android.app.Activity;
-import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,13 +11,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.iteso.pdm18_scrollabletabs.R;
 import com.iteso.pdm18_scrollabletabs.beans.ItemProduct;
 
 import java.util.ArrayList;
-
-import static android.support.v4.app.ActivityCompat.startActivityForResult;
 
 public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHolder>{
 
@@ -68,9 +63,10 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mTitle.setText(mDataSet.get(position).getTitle());
-        holder.mStore.setText(mDataSet.get(position).getStore());
-        holder.mLocation.setText(mDataSet.get(position).getLocation());
-        holder.mPhone.setText(mDataSet.get(position).getPhone());
+        holder.mStore.setText(mDataSet.get(position).getStore().getName());
+        holder.mLocation.setText(
+                mDataSet.get(position).getStore().getCity().getName() + ", Jalisco");
+        holder.mPhone.setText(mDataSet.get(position).getStore().getPhone());
         switch(mDataSet.get(position).getImage()){
             case 0:
                 holder.mProductImage.setImageResource(R.drawable.mac); break;
@@ -84,7 +80,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_DIAL,
-                        Uri.parse("tel:" + mDataSet.get(position).getPhone()));
+                       Uri.parse("tel:" + mDataSet.get(position).getStore().getPhone()));
                 context.startActivity(intent);
             }
         });
@@ -95,13 +91,13 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
                 ItemProduct iit=new ItemProduct();
                 iit.setTitle(mDataSet.get(position).getTitle());
                 iit.setStore(mDataSet.get(position).getStore());
-                iit.setLocation(mDataSet.get(position).getLocation());
-                iit.setPhone(mDataSet.get(position).getPhone());
+               // iit.setLocation(mDataSet.get(position).getLocation());
+                //iit.setPhone(mDataSet.get(position).getPhone());
                 iit.setCode(mDataSet.get(position).getCode());
                 iit.setImage(mDataSet.get(position).getImage());
-                Intent intent = new Intent(context, ActivityProduct.class);
-                intent.putExtra("ITEM", iit);
-                ((ActivityMain) context).startActivityForResult(intent, mDataSet.get(position).getCode());
+                //Intent intent = new Intent(context, ActivityProduct.class);
+              //  intent.putExtra("ITEM", iit);
+                //((ActivityMain) context).startActivityForResult(intent, mDataSet.get(position).getCode());
             }
         });
     }

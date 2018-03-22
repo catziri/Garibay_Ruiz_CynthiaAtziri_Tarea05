@@ -1,4 +1,5 @@
-package com.iteso.pdm18_scrollabletabs;
+
+package com.iteso.pdm18_scrollabletabs.tools;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,7 +11,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.iteso.pdm18_scrollabletabs.R;
 import com.iteso.pdm18_scrollabletabs.beans.ItemProduct;
+
+import org.w3c.dom.Text;
 
 public class ActivityProduct extends AppCompatActivity {
     public EditText Title;
@@ -37,9 +41,8 @@ public class ActivityProduct extends AppCompatActivity {
             itemProduct=getIntent().getParcelableExtra("ITEM");
             if(itemProduct!=null){
                 Title.setText(itemProduct.getTitle());
-                Store.setText(itemProduct.getStore());
-                Location.setText(itemProduct.getLocation());
-                Phone.setText(itemProduct.getPhone());
+                Store.setText(itemProduct.getStore().getName());
+                Location.setText(itemProduct.getStore().getCity().getName());
 
                 switch(itemProduct.getImage()){
                     case 0:
@@ -54,13 +57,16 @@ public class ActivityProduct extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener(){
             public void onClick (View v){
           i=new ItemProduct();
+                //i.setTitle(Title.getText().toString());
+                //i.setStore(Store.getText().toString());
+                //i.setLocation(Location.getText().toString());
+                //i.setPhone(Phone.getText().toString());
+                //i.setImage(itemProduct.getImage());
+                //i.setCode(itemProduct.getCode());
+                i.setCode(i.getCode());
                 i.setTitle(Title.getText().toString());
-                i.setStore(Store.getText().toString());
-                i.setLocation(Location.getText().toString());
-                i.setPhone(Phone.getText().toString());
-                i.setImage(itemProduct.getImage());
-                i.setCode(itemProduct.getCode());
-
+                i.getStore().setName(Store.getText().toString());
+                i.getStore().getCity().setName(Location.getText().toString());
                 Intent intent = new Intent();
                 intent.putExtra("ITEM", i);
                 setResult(Activity.RESULT_OK, intent);

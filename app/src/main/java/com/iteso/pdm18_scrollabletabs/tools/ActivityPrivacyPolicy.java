@@ -1,4 +1,4 @@
-package com.iteso.pdm18_scrollabletabs;
+package com.iteso.pdm18_scrollabletabs.tools;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,6 +10,8 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
+
+import com.iteso.pdm18_scrollabletabs.R;
 
 public class ActivityPrivacyPolicy extends AppCompatActivity implements
         DialogInterface.OnKeyListener{
